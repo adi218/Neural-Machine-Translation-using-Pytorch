@@ -425,7 +425,7 @@ class Seq2seq(nn.Module):
         self.encoder = EncoderRNN(input_vocab_size, hidden_size, self.n_layers).to(device)
         self.decoder = DecoderRNN(output_vocab_size, hidden_size, self.n_layers).to(device)
 
-        self.W = nn.Linear(hidden_size, output_vocab_size)
+        self.W = nn.Linear(hidden_size, output_vocab_size).to(device)
         init.normal_(self.W.weight, 0.0, 0.2)
 
         self.softmax = nn.Softmax()
@@ -611,7 +611,7 @@ for epoch in range(100):
         if early_stop_counter >= early_stop_after:
             print('Early stop!')
             break
-
+torch.save(best_model.state_dict(), "./model/model")
 
 # In[ ]:
 
