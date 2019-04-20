@@ -337,8 +337,10 @@ for source_sent in test_source:
 x_test = torch.transpose(torch.cat(x_test, dim=-1), 1, 0)
 torch.save(x_test, os.path.join(data_dir, 'x_test.bin'))
 
-USE_CUDA = False
+USE_CUDA = True
+device="cpu"
 if USE_CUDA:
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     x_training = x_training.cuda()
     y_training = y_training.cuda()
     x_development = x_development.cuda()
@@ -381,7 +383,7 @@ class EncoderRNN(nn.Module):
         return output, hidden
 
     def init_hidden(self, batches):
-        hidden = torch.zeros(2, self.n_layers*2, batches, int(self.hidden_size/2))
+        hidden = torch.zeros(2, self.n_layers*2, batches, int(self.hidden_size/2), device=device)
         if USE_CUDA: hidden = hidden.cuda()
         return hidden
 
@@ -420,8 +422,8 @@ class Seq2seq(nn.Module):
         self.n_layers = n_layers
         self.hidden_size = hidden_size
 
-        self.encoder = EncoderRNN(input_vocab_size, hidden_size, self.n_layers)
-        self.decoder = DecoderRNN(output_vocab_size, hidden_size, self.n_layers)
+        self.encoder = EncoderRNN(input_vocab_size, hidden_size, self.n_layers).to(device)
+        self.decoder = DecoderRNN(output_vocab_size, hidden_size, self.n_layers).to(device)
 
         self.W = nn.Linear(hidden_size, output_vocab_size)
         init.normal_(self.W.weight, 0.0, 0.2)
@@ -461,7 +463,7 @@ class Seq2seq(nn.Module):
         result = [current_y]
         counter = 0
         while current_y != EOS_idx and counter < 100:
-            input = torch.tensor([current_y])
+            input = torch.tensor([current_y], device = device)
             decoder_output, decoder_hidden = self.decoder(input, (decoder_hidden_h, decoder_hidden_c))
             decoder_hidden_h, decoder_hidden_c = decoder_hidden
             # h: (vocab_size)
