@@ -576,7 +576,7 @@ for epoch in range(100):
         # (batch_size, vocab_size, seq_length)
         H = model.forward_train(x, y_tf)
         loss = cross_entropy(H, y_true)
-        print(step, " ", loss)
+        # print(step, " ", loss)
         assert loss.item() > 0
 
         optim.zero_grad()
@@ -589,28 +589,28 @@ for epoch in range(100):
     print('Epoch {} training is finished, loss: {:.4f}'.format(epoch+1, total_loss/total_batches))
 
     desc = 'Validating epoch {}'.format(epoch+1)
-    scores = score(model, x_development, dev_target, desc=desc)
-    scores_str = '\n'.join(['{}: {:.4f}'.format(name, score) for name, score in scores.items()])
-    scores_history.append(scores)
+    # scores = score(model, x_development, dev_target, desc=desc)
+    # scores_str = '\n'.join(['{}: {:.4f}'.format(name, score) for name, score in scores.items()])
+    # scores_history.append(scores)
 
-    print ('Epoch {} validation is finished.\n{}'.format(
-        epoch+1, scores_str
-    ))
+    # print ('Epoch {} validation is finished.\n{}'.format(
+    #     epoch+1, scores_str
+    # ))
 
-    metric = scores[scoring_metric]
+    # metric = scores[scoring_metric]
 
-    # Early Stop
-    if metric > best_score:
-        early_stop_counter = 0
-        print('The best model is found, resetting early stop counter.')
-        best_score = metric
-        best_model = model
-    else:
-        early_stop_counter += 1
-        print('No improvements for {} epochs.'.format(early_stop_counter))
-        if early_stop_counter >= early_stop_after:
-            print('Early stop!')
-            break
+    # # Early Stop
+    # if metric > best_score:
+    #     early_stop_counter = 0
+    #     print('The best model is found, resetting early stop counter.')
+    #     best_score = metric
+    best_model = model
+    # else:
+    #     early_stop_counter += 1
+    #     print('No improvements for {} epochs.'.format(early_stop_counter))
+    #     if early_stop_counter >= early_stop_after:
+    #         print('Early stop!')
+    #         break
 torch.save(best_model.state_dict(), "./model/model")
 
 # In[ ]:
