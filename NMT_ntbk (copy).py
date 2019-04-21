@@ -339,7 +339,7 @@ for source_sent in test_source:
 x_test = torch.transpose(torch.cat(x_test, dim=-1), 1, 0)
 torch.save(x_test, os.path.join(data_dir, 'x_test.bin'))
 
-USE_CUDA = True
+USE_CUDA = False
 if USE_CUDA:
     x_training = x_training.cuda()
     y_training = y_training.cuda()
@@ -614,7 +614,8 @@ hidden_size = 256
 encoder1 = EncoderRNN(len(source_vocab), hidden_size).to(device)
 decoder1 = DecoderRNN(hidden_size, len(target_vocab)).to(device)
 
-trainIters(encoder1, decoder1, 100000, print_every=5000)
+trainIters(encoder1, decoder1, 75000, print_every=5000)
+torch.save([encoder1,decoder1],'./model/nmt.pkl')
 
 
 # In[ ]:
