@@ -858,7 +858,6 @@ $
 7000
 70000
 700000
-700kcal
 700kg
 701
 707
@@ -2953,7 +2952,6 @@ bơ
 bơi
 bơm
 bơn
-bưa
 bưc
 bưng
 bưu
@@ -3424,7 +3422,6 @@ chabon
 chacha
 chad
 chadd
-chade
 chagall
 chagos
 chahi
@@ -4075,6 +4072,7 @@ comeday
 comedy
 comer
 comes
+comfort
 command
 commercial
 commons
@@ -4098,7 +4096,6 @@ conagra
 conan
 concertgebouw
 concerto
-concord
 condi
 condoleezza
 condom
@@ -14220,6 +14217,7 @@ remen
 remi
 remix
 remmel
+remnick
 remotion
 ren
 renata
@@ -14483,7 +14481,6 @@ ross
 rossetti
 rossevelt
 rosslyn
-rossy
 rotary
 roth
 rothemund
@@ -15937,6 +15934,7 @@ susan
 susana
 sushi
 suslick
+sussex
 sussman
 sustainable
 sustein
@@ -16737,6 +16735,7 @@ thônng
 thõng
 thù
 thùa
+thùm
 thùng
 thú
 thúc
@@ -17639,6 +17638,7 @@ tĩnh
 tĩu
 tơ
 tơi
+tơí
 tư
 tưng
 tưoờng

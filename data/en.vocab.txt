@@ -2002,6 +2002,7 @@ ambient
 ambiguities
 ambiguity
 ambiguous
+ambit
 ambition
 ambitions
 ambitious
@@ -2719,7 +2720,6 @@ arendt
 areolar
 ares
 argentina
-argentine
 argentinean
 argh
 arghs
@@ -9249,6 +9249,7 @@ cress
 crest
 crestfallen
 crests
+cretaceous
 crete
 crevasse
 crevasses
@@ -20964,7 +20965,6 @@ kneaded
 kneale
 knee
 kneel
-knees
 knelt
 knew
 knife
@@ -21163,7 +21163,6 @@ la
 lab
 labcorp
 label
-labeled
 labeling
 labels
 labia
@@ -24034,7 +24033,6 @@ minustah
 minute
 minutes
 minutiae
-mir
 mira
 mirabile
 miracle
@@ -24873,6 +24871,7 @@ mushroomy
 music
 musica
 musical
+musically
 musicals
 musician
 musicians
@@ -27586,7 +27585,6 @@ pencil
 penciled
 pencils
 pendant
-pending
 pendulum
 pendulums
 penelope
@@ -33586,6 +33584,7 @@ server
 servers
 serves
 service
+serviceable
 serviced
 services
 servicing
@@ -34737,6 +34736,7 @@ sneakily
 sneaking
 sneaks
 sneaky
+sneeze
 sneezing
 snickers
 sniff
